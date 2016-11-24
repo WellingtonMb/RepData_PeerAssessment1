@@ -2,7 +2,7 @@
 
 
 
-##1.0 Loading the data
+###1.0 Loading the data
 
 
 ```r
@@ -25,7 +25,7 @@ str(activityData)
 
 
 
-##2.0 Evaluating the mean total number of steps taken per day 
+###2.0 Evaluating the mean total number of steps taken per day 
 
 The missing data is ignored
 
@@ -42,8 +42,7 @@ str(Data1)
 ```
 
 
-
-##3.0 A histogram of mean total number of steps taken each day
+###3.0 A histogram of mean total number of steps taken each day
 
 
 ```r
@@ -55,7 +54,7 @@ hist(steps, breaks=15, main = "Distribution of Steps taken each day", col = "#42
 
 
 
-##4.0 Mean steps per day 
+###4.0 Mean steps per day 
 
 Calculating the mean steps per day ignoring the missing values
 
@@ -84,7 +83,7 @@ Median_Steps
 
 
 
-##5.0 What is the average daily activity pattern?
+###5.0 What is the average daily activity pattern?
 
 
 ```r
@@ -109,7 +108,7 @@ plot(daily_Average_Steps$interval, daily_Average_Steps$steps,  type = "l", main 
 
 
 
-##6.0 The 5-minute interval containing the maximum number of steps.
+###6.0 The 5-minute interval containing the maximum number of steps.
 
 
 ```r
@@ -123,7 +122,7 @@ subset(daily_Average_Steps, daily_Average_Steps$steps == highestNumberOfSteps)$i
 
 
 
-##7.0 Imputing missing values
+###7.0 Imputing missing values
 
 The presence of missing days (coded as `NA`) may introduce bias into some calculations or summaries of the data.
 
@@ -159,7 +158,7 @@ head(activityData)
 
 
 
-##8.0 Evaluating the mean total number of steps without NA`s
+###8.0 Evaluating the mean total number of steps without NA`s
 
 Average daily total number of steps
 
@@ -193,7 +192,7 @@ summary(Data2)
 
 
 
-##9.0 Making a histogram of mean total number of steps taken each day
+###9.0 Making a histogram of mean total number of steps taken each day
 
 
 ```r
@@ -205,14 +204,14 @@ hist(steps, breaks=15, main = "Distribution of Steps taken each day", col = "#42
 
 
 
-##10.0 Conclusion
+###10.0 Conclusion
 
-The mean and median of the data containg NA`s are different. When the missing values are replaced with the average the resulting **mean** and **median** are exactly the same value. This shows that the NA`s introduces skewness and replacing the NA`s removes skewness.
+The mean and median of the data containg NA values are different. When the NA values are replaced with the average the resulting **mean** and **median** are exactly the same value. This shows that the NA values introduce skewness and replacing the NA values remove the skewness.
 
 
-##11.0 Activity patterns differences between weekdays and weekends
+###11.0 Activity patterns differences between weekdays and weekends
 
-###11.1 Showing the days of the week
+Showing the days of the week
 
 
 ```r
@@ -227,7 +226,7 @@ str(activityData)
 ##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
 ```
 
-###11.2 Selecting week days data only
+Selecting week days data only
 
 
 ```r
@@ -245,7 +244,7 @@ head(weekdaysActivity)
 ## 6 37.3826 Monday       25
 ```
 
-###11.3 Weekday Activity pattern
+Weekday Activity pattern
 
 
 ```r
@@ -270,14 +269,14 @@ ggplot(weekday, aes(Interval,Steps)) + geom_line(color = "#df42f4", size=1/4, al
 
 ![](PA1_template_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
 
-###11.4 Selecting weekend days data only
+Selecting weekend days data only
 
 
 ```r
 weekendActivity <- subset(activityData, activityData$date=="Saturday"| activityData$date=="Sunday")
 ```
 
-###11.5 The weekend pattern
+The weekend pattern
 
 ```r
 Interval <- seq(0, 2355, 5)
@@ -301,7 +300,7 @@ ggplot(weekend, aes(Interval,Steps)) + geom_line(color = "#f44283", size=1/4, al
 
 ![](PA1_template_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
 
-##12.0 Comparison of Week days and Weekends activity
+###12.0 Comparison of Week days and Weekends activity
 
 
 ```r
@@ -316,12 +315,11 @@ plot(weekend$Steps, type="l", main = "Weekend activity pattern", xlab = "Interva
 
 
 
-##13.0 Observations and Conclusions
+###13.0 Observations and Conclusions
 
 
 The peak steps are around the intervals 500 and 2000 for both weekend and week days. The week days peak are higher than weekend peaks. Weekdays have the lower number of steps walked between intervals 500 and 1250 compared to the similar interval over the weekends.
 
-It can be concluded that the weekends have more activity than weekdays.
 
 
 
